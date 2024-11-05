@@ -1,10 +1,13 @@
 from fastapi import FastAPI
 from users import user_router
-from database import start_database
+from database import init_database
+from contextlib import asynccontextmanager
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    await init_database()
+    yield
 
-async def connect():
-    await start_database()
+app = FastAPI(lifespan=lifespan)
 
 app.include_router(user_router)
