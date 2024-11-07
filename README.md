@@ -29,7 +29,7 @@
 ### FOR GET (one user):
 1. Create a GET HTTP request and enter in the following endpoint ```localhost:3000/api/user/<id>```
 2. Send the request
-* *NOTE: You need to create a user beforehand to be able to retrieve the user* *
+_NOTE: You need to create a user beforehand to be able to retrieve the user_
 ### FOR GET (all users):
 1. Create a GET HTTP request and enter in the following endpoint ```localhost:3000/api/users```
 2. Send the request
@@ -43,10 +43,9 @@
 }
 ```
 3. Send the request
-* *NOTE: You need to create a user beforehand to be able to update an existing user* *
+_NOTE: You need to create a user beforehand to be able to update an existing user_
 
 ### FOR DELETE:
 1. Create a DELETE HTTP request and enter in the following endpoint ```localhost:3000/api/user/<ANY EXISTING ID>```
 2. Send the request
-3. * *NOTE: You need to create a user beforehand to be able to delete a user* *
-
+_NOTE: You need to create a user beforehand to be able to delete a user_
