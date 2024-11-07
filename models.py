@@ -23,7 +23,7 @@ class CreateNewUserRequest(BaseModel):
     name: str
     email: str
 
-class UpdateUser(BaseModel):
+class UpdateUser(CreateNewUserRequest):
     """
     This model is used to update data into the User document, by using the 
     """
