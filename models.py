@@ -1,3 +1,4 @@
+from typing import Optional
 from beanie import Document
 from pydantic import BaseModel, Field
 from datetime import datetime
@@ -18,6 +19,10 @@ class User(Document):
 class CreateNewUserRequest(BaseModel):
     name: str
     email: str
+
+class UpdateUser(CreateNewUserRequest):
+    name: Optional[str]
+    email: Optional[str]
 
 class CreateUserResponse(BaseModel):
     id: str
