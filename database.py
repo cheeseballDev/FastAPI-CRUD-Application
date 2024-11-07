@@ -2,7 +2,7 @@ import os
 import beanie
 from dotenv import load_dotenv
 from motor.motor_asyncio import AsyncIOMotorClient
-from models import User, CreateNewUserRequest, CreateUserResponse
+from models import User
 
 load_dotenv()
 
