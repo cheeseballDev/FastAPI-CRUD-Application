@@ -34,17 +34,21 @@ async def create_user(user_request: CreateNewUserRequest) -> any:
         )
     }
 
-@user_router.patch('/api/user/{user_id}', response_model=Dict[str, Union[str, UpdateUser]])
+@user_router.patch('/api/user/{user_id}', response_model=Dict[str, Union[str, CreateUserResponse]])
 async def update_user(user_id, user_request: UpdateUser) -> any:
     user = await User.get(user_id)
-    user.name = user_request.name
-    user.email = user_request.email
+    if user_request.name:
+        user.name = user_request.name
+    if user_request.email:
+        user.email = user_request.email
     await user.save()
     return {
         "message": "User has been updated",
-        "User": UpdateUser(
-            name=user_request.name,
-            email=user_request.email,
+        "User": CreateUserResponse(
+            id=user.id,
+            name=user.name,
+            email=user.email,
+            created_at=user.created_at
         )
     }
 

@@ -17,14 +17,23 @@ class User(Document):
         name = "user_data"
 
 class CreateNewUserRequest(BaseModel):
+    """
+    This model is used to pass data into the User document
+    """
     name: str
     email: str
 
-class UpdateUser(CreateNewUserRequest):
-    name: Optional[str]
-    email: Optional[str]
+class UpdateUser(BaseModel):
+    """
+    This model is used to update data into the User document, by using the 
+    """
+    name: Optional[str] = None
+    email: Optional[str] = None
 
 class CreateUserResponse(BaseModel):
+    """
+    This model is used to read the data in the User document
+    """
     id: str
     name: str
     email: str
