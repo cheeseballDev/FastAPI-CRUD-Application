@@ -1,5 +1,5 @@
 from beanie import Document
-from pydantic import Field
+from pydantic import BaseModel, Field
 from datetime import datetime
 import uuid
 
@@ -14,3 +14,13 @@ class User(Document):
 
     class Settings:
         name = "user_data"
+
+class CreateNewUserRequest(BaseModel):
+    name: str
+    email: str
+
+class CreateUserResponse(BaseModel):
+    id: str
+    name: str
+    email: str
+    created_at: datetime
